@@ -1,22 +1,17 @@
 package com.DM.demo.persistence.entities;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Player {
 	
 	@Id
 	@GeneratedValue
-	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
-	@Column(name= "Player Id")
 	private long playerId;
 	
-	@Column(name = "Player Name")
+
 	private String playerName;
 	
 	public Player() {};

@@ -9,7 +9,7 @@ import com.DM.demo.persistence.entities.Player;
 
 @Repository
 public interface PlayerRepo  extends JpaRepository<Player, Long>{
-	List<Player>findplayerName(String playerName);
+	
 	
 	
 	

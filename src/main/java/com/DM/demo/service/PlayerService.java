@@ -36,14 +36,14 @@ public class PlayerService {
 		return this.repo.findById(playerId).orElseThrow(() -> new PlayerNotFoundException());
 	}
 	
-	public List<Player> readDucks(){
+	public List<Player> readPlayer(){
 		return this.repo.findAll();
 	}
 	
-	public Player updatePlayer(Player player, Long playerId) {
-		Player toUpdate = findPlayerById(playerId);
-		toUpdate.setPlayerName(player.getPlayerName());
-		return this.repo.save(toUpdate);
+
+	
+	public Player updatePlayer(Player player) {
+		return this.repo.save(player);
 	}
 
 }
