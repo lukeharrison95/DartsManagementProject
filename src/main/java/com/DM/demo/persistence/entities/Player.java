@@ -1,23 +1,35 @@
 package com.DM.demo.persistence.entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Player {
-	
+
 	@Id
 	@GeneratedValue
 	private long playerId;
-	
 
 	private String playerName;
-	
-	public Player() {};
-	
+
+	@OneToMany
+	private Set<Game> games;
+
+	public Player(String playerName, Set<Game> games) {
+		super();
+		this.playerName = playerName;
+		this.games = games;
+	}
+
+	public Player() {
+	};
+
 	public Player(String playerName) {
-		this.playerName = playerName ;
+		this.playerName = playerName;
 	}
 
 	public long getPlayerId() {
@@ -36,15 +48,19 @@ public class Player {
 		this.playerName = playerName;
 	}
 
-	@Override
-	public String toString() {
-		return "Player [playerName=" + playerName + "]";
+	public Set<Game> getGames() {
+		return games;
+	}
+
+	public void setGames(Set<Game> games) {
+		this.games = games;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((games == null) ? 0 : games.hashCode());
 		result = prime * result + (int) (playerId ^ (playerId >>> 32));
 		result = prime * result + ((playerName == null) ? 0 : playerName.hashCode());
 		return result;
@@ -59,6 +75,11 @@ public class Player {
 		if (getClass() != obj.getClass())
 			return false;
 		Player other = (Player) obj;
+		if (games == null) {
+			if (other.games != null)
+				return false;
+		} else if (!games.equals(other.games))
+			return false;
 		if (playerId != other.playerId)
 			return false;
 		if (playerName == null) {
@@ -68,7 +89,5 @@ public class Player {
 			return false;
 		return true;
 	}
-	
-	
 
 }
