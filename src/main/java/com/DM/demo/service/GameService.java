@@ -30,5 +30,6 @@ public class GameService {
 	public Game updateGame(Game game) {
 		return this.repo.save(game);
 	}
+	
 
 }

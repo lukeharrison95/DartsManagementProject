@@ -14,7 +14,7 @@ import com.DM.demo.persistence.repo.PlayerRepo;
 public class PlayerService {
 
 	private PlayerRepo repo;
-	
+
 	private GameService gameService;
 
 	public PlayerService(PlayerRepo repo, GameService gameService) {
@@ -44,6 +44,11 @@ public class PlayerService {
 
 	public Player updatePlayer(Player player) {
 		return this.repo.save(player);
+	}
+
+	public int getPoints(Long id) {
+		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
+				.map(game -> game.getResult()).map(result -> result.getPoints()).reduce((acc, next) -> acc + next).orElse(0);
 	}
 
 	public Player addGame(Game game, Long id) {
