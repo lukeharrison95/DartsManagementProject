@@ -12,15 +12,7 @@ public class Game {
 	@Id
 	@GeneratedValue
 	private Long gameId;
-
-	public Long getGameId() {
-		return gameId;
-	}
-
-	public void setGameId(Long gameId) {
-		this.gameId = gameId;
-	}
-
+	
 	private Long finishingDouble;
 	private Long numberOfDartsThrown;
 	private GameEnds result;
@@ -30,10 +22,18 @@ public class Game {
 
 	public Game(Long finishingDouble, Long numberOfDartsThrown, GameEnds result) {
 		super();
-		// this.player = player;
+		
 		this.finishingDouble = finishingDouble;
 		this.numberOfDartsThrown = numberOfDartsThrown;
 		this.result = result;
+	}
+	
+	public Long getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(Long gameId) {
+		this.gameId = gameId;
 	}
 
 	public Long getFinishingDouble() {

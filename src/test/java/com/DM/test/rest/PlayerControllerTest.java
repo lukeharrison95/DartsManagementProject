@@ -1,4 +1,4 @@
-package com.DM.demo.rest;
+package com.DM.test.rest;
 
 import static org.junit.jupiter.api.Assertions.*;
 

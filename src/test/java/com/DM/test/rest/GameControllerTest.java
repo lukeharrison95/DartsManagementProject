@@ -1,4 +1,4 @@
-package com.DM.demo.rest;
+package com.DM.test.rest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.DM.demo.Util.GameEnds;
 import com.DM.demo.persistence.entities.Game;
+import com.DM.demo.rest.GameController;
 import com.DM.demo.service.GameService;
 
 
@@ -37,10 +38,11 @@ class GameControllerTest {
 	@Before
 	public void init() {
 		this.gameList = new ArrayList<>();
-		this.gameList.add(testGame);
 		this.testGame = new Game(2L,20L,GameEnds.WIN);
-		this.testGameWithId = new Game(testGame.getFinishingDouble(),testGame.getNumberOfDartsThrown(),testGame.getResult());
-		this.testGameWithId.setGameId(gameId);	
+		this.testGameWithId = new Game(2L,20L,GameEnds.WIN);
+		this.testGameWithId.setGameId(this.gameId);
+		this.gameList.add(testGame);
+		
 	}
 	
 	
@@ -50,6 +52,15 @@ class GameControllerTest {
 		when(this.service.createGame(testGame)).thenReturn(testGameWithId);
 		assertEquals(this.testGameWithId, this.controller.createGame(testGame));
 		verify(this.service, times(1)).createGame(this.testGame);
+	}
+	
+	@Test
+	public void findGameByIDTest() {
+		when(this.service.findGameById(this.gameId)).thenReturn(this.testGameWithId);
+
+		assertEquals(this.testGameWithId, this.controller.findGameByID(this.gameId));
+
+		verify(this.service, times(1)).findGameById(this.gameId);
 	}
 
 }

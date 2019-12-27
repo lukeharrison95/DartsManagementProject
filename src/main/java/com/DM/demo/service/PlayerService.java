@@ -23,7 +23,7 @@ public class PlayerService {
 	}
 
 	public Player createPlayer(Player player) {
-		return this.repo.save(player);
+		return this.repo.saveAndFlush(player);
 	}
 
 	public boolean deletePlayer(Long playerId) {
