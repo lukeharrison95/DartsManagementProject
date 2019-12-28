@@ -63,5 +63,21 @@ public class GameControllerTest {
 
 		verify(this.service, times(1)).findGameById(this.gameId);
 	}
-
+	
+	@Test
+	public void findAllGamesTest() {
+		when(this.service.readGame()).thenReturn(gameList);
+		assertFalse("Controller Found no games",this.controller.findAllGames().isEmpty());
+		verify(this.service, times(1)).readGame();
+	}
+	
+	@Test
+	public void updateGameTest() {
+		Game newGameData = new Game(9L,45L,GameEnds.LOSS);
+		Game updatedGame = new Game(newGameData.getFinishingDouble(),newGameData.getNumberOfDartsThrown(),newGameData.getResult());
+		updatedGame.setGameId(this.gameId);
+		when(this.service.updateGame(newGameData)).thenReturn(updatedGame);
+		assertEquals(updatedGame,this.controller.updateGame(newGameData));
+		verify(this.service, times(1)).updateGame(newGameData);
+	}
 }
