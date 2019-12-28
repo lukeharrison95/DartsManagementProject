@@ -23,7 +23,7 @@ import com.DM.demo.service.GameService;
 
 
 @RunWith(SpringRunner.class)
-public class GameServiceTest {
+public class GameServiceUnitTest {
 
 	@InjectMocks
 	private GameService service;
