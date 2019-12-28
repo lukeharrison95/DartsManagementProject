@@ -49,7 +49,7 @@ public class GameControllerTest {
 	
 	
 	@Test
-	public void createPlayertest() {
+	public void createGametest() {
 		when(this.service.createGame(testGame)).thenReturn(testGameWithId);
 		assertEquals(this.testGameWithId, this.controller.createGame(testGame));
 		verify(this.service, times(1)).createGame(this.testGame);
