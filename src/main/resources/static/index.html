@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="bootstrap.min.css">
 <link rel="stylesheet" href="bootstrap.css">
-<link rel="stylesheet" href="mycss.css"
+<link rel="stylesheet" href="mycss.css">
 
 </head>
 
@@ -61,7 +61,25 @@
           
         </tbody>
       </table> 
-      <button type="button" class="btn btn-outline-success">Add Player</button>
+     
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Add Player</h1>
+      
+          <label for="email"><b>Player Name</b></label>
+          <input type="text" placeholder="Enter Name" name="email" required>
+      
+      
+      
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
+
+
+
+      <button type="button" id="add" class="btn btn-outline-success"   onclick="openForm()">Add Player</button>
     </div>
 
 
@@ -76,7 +94,7 @@
 
 
 
-
+<script> src="addplayerpopup.js"</script>
 
 
 
