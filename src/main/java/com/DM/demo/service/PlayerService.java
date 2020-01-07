@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.DM.demo.Util.GameEnds;
 import com.DM.demo.Util.GameNotFoundException;
 import com.DM.demo.Util.PlayerNotFoundException;
 import com.DM.demo.persistence.entities.Game;
@@ -50,7 +51,22 @@ public class PlayerService {
 		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
 				.map(game -> game.getResult()).map(result -> result.getPoints()).reduce((acc, next) -> acc + next).orElse(0);
 	}
+	
+	public long getWins(long id) {
+		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
+				.map(game -> game.getResult()).filter(i -> i == GameEnds.WIN).count();
+	}
+	
+	public long getDraws(long id) {
+		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
+				.map(game -> game.getResult()).filter(i -> i == GameEnds.DRAW).count();
+	}
 
+	
+	public long getLost(long id) {
+		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
+				.map(game -> game.getResult()).filter(i -> i== GameEnds.LOSS).count();
+		}
 	public Player addGame(Game game, Long id) {
 		Player player = this.repo.findById(id).orElseThrow(GameNotFoundException::new);
 		player.getGames().add(gameService.createGame(game));
