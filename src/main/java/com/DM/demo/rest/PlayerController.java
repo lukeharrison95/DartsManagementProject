@@ -59,10 +59,25 @@ public class PlayerController {
 		return this.service.readPlayer();
 	}
 	
-
+	@GetMapping("/getPoints/{playerId}")
+	public int getPoints(@PathVariable long playerId) {
+		return this.service.getPoints(playerId);
+	}
 	
+	@GetMapping("/getWins/{playerId}")
+	public long getWins(@PathVariable long playerId) {
+		return this.service.getWins(playerId);
+	}
 	
+	@GetMapping("/getDraws/{playerId}")
+	public long getDraws(@PathVariable long playerId) {
+		return this.service.getDraws(playerId);
+	}
 	
+	@GetMapping("/getLoss/{playerId}")
+	public long getLoss(@PathVariable long playerId) {
+		return this.service.getLost(playerId);
+	}
 	
 	
 }
