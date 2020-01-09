@@ -54,18 +54,84 @@
       </table> 
      
       <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
+        <form  class="form-container" onsubmit="addPlayer()">
           <h1>Add Player</h1>
       
           <label for="email"><b>Player Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" required>
+          <input type="text"  id="player" placeholder="Enter Name" required>
       
       
       
-          <button id= "playersub" type="submit" class="btn btn-success">Submit</button>
+          <button id= "playersub" type="submit" class="btn btn-success" >Submit</button>
           <button id="playerclose" type="button" class="btn btn-danger" onclick="closeForm()">Close</button>
         </form>
       </div>
+    
+
+
+
+ <div class="form-popup" id="myEditForm">
+        <form action="/action_page.php" class="form-container"></form>
+          <h1>Edit Player</h1>
+      
+          <label ><b>New Player Name</b></label>
+          <input  type="text" placeholder="Enter Name" >
+      
+      
+      
+          <button  type="submit" class="btn btn-success">Submit</button>
+          <button  type="button" class="btn btn-danger" onclick="closeEditForm()">Close</button>
+        </form>
+    </div> 
+
+    <div class="form-popup" id="myAddGameForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Add Game</h1>
+          <input type="number" placeholder="Amount of Darts Thrown" name="numbers" required>
+
+          <select class="custom-select">
+            <option selected="">Select result</option>
+            <option value="1">Win</option>
+            <option value="2">Draw</option>
+            <option value="3">Loss</option>
+          </select>
+
+          <select class="custom-select">
+            <option selected="">Finishing Double</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+          </select>
+
+         
+      
+      
+      
+          <button  type="submit" class="btn btn-success">Submit</button>
+          <button  type="button" class="btn btn-danger" onclick="closeeditForm()">Close</button>
+        </form>
+      </div> 
+
+
+
+
 
 
 
@@ -74,13 +140,11 @@
     </div>
     
     
-    <button type="button"  class="btn btn-outline-success"   onclick="readAll()">read Player</button>
+    
 
 
 
-    <button type="button" id ="edit-player"class="btn btn-success tablebuttons">Edit Player</button>
-    <button type="button" id ="delete-player" class="btn btn-danger tablebuttons">Delete Player</button>
-    <button type="button" id = "add-game" class="btn btn-info tablebuttons">Add Games</button>
+    
 
 
 

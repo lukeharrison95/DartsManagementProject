@@ -15,6 +15,30 @@
     color: #fff;
   }
 
+
+
+  #myEditForm {
+    display: none;
+    position: fixed;
+    
+    bottom: 50%;
+    right: 50%;
+    border: 3px ;
+    z-index: 9;
+    color: #fff;
+  }
+
+  #myAddGameForm {
+    display: none;
+    position: fixed;
+    
+    bottom: 50%;
+    right: 50%;
+    border: 3px ;
+    z-index: 9;
+    color: #fff;
+  }
+
   .form-container{
       background-color: #333;
       width: 600px;
