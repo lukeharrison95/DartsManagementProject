@@ -143,7 +143,7 @@ function makeTable(data) {
         twoInput.value = "2";
         twoInput.innerHTML="2";
         finishingDoubleInput.appendChild(twoInput);
-        http://localhost:8080
+        
         const threeInput = document.createElement("option");
         threeInput.value = "3";
         threeInput.innerHTML="3";
