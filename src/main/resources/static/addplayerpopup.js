@@ -241,10 +241,10 @@ function makeTable(data) {
         addGameSubmitButton.innerHTML = "Submit";
         addGameForm.appendChild(addGameSubmitButton);
 
-        const closeAddGameWindow = document.createElement("button");
+      /*   const closeAddGameWindow = document.createElement("button");
         closeAddGameWindow.className="btn btn-danger";
         closeAddGameWindow.type = "button";
-        closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameFormdiv));
+        closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameFormdiv)); */
 
 
 
