@@ -48,7 +48,9 @@
     visibility: none;
 }
 
-
+#myablediv{
+overflow: scroll;
+}
 
 
 
