@@ -231,7 +231,7 @@ function makeTable(data) {
         finishingDoubleInput.appendChild(nineteenInput);
 
         const twentyInput = document.createElement("option");
-        twenyInput.value = "20";
+        twentyInput.value = "20";
         twentyInput.innerHTML="20";
         finishingDoubleInput.appendChild(twentyInput);
 
