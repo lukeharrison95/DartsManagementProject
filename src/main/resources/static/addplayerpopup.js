@@ -82,7 +82,7 @@ function makeTable(data) {
 
       function addGame(data){
         let playerid = data;
-        const addGameFormdiv = document.createElement("div");
+        const addGameFormDiv = document.createElement("div");
         addGameFormDiv.id ="myAddGameForm";
         
         const addGameForm = document.createElement("form");
@@ -218,7 +218,7 @@ function makeTable(data) {
         const seventeenInput = document.createElement("option");
         seventeenInput.value = "17";
         seventeenInput.innerHTML="17";
-        finishingDoubleInput.appendChild(thirteenInput);
+        finishingDoubleInput.appendChild(seventeenInput);
 
         const eighteenInput = document.createElement("option");
         eighteenInput.value = "18";
@@ -232,7 +232,8 @@ function makeTable(data) {
 
         const twentyInput = document.createElement("option");
         twenyInput.value = "20";
-        twentyInput.innerHTML="20";closeAddGameWindow()
+        twentyInput.innerHTML="20";
+        finishingDoubleInput.appendChild(twentyInput);
 
         const addGameSubmitButton = document.createElement("button");
         addGameSubmitButton.type ="submit";
