@@ -199,7 +199,7 @@ function makeTable(data) {
         thirteenInput.value = "13";
         thirteenInput.innerHTML="13";
         finishingDoubleInput.appendChild(thirteenInput);
-        addplayerpopup
+        
         const fourteenInput = document.createElement("option");
         fourteenInput.value = "14";
         fourteenInput.innerHTML="14";
