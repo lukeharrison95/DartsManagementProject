@@ -89,7 +89,7 @@ function makeTable(data) {
         addGameForm.className = "form-containter";
         addGameFormDiv.appendChild(addGameForm);
         
-        const addTitle = document.createElement(h1);
+        const addTitle = document.createElement("h1");
         addTitle.innerHTML = "Add Game";
         addGameForm.appendChild(addTitle);
         
