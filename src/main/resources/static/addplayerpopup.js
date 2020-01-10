@@ -10,7 +10,7 @@ function closeForm() {
 
 function addPlayer(){
  let player = document.getElementById("player").value;
-axios.post('http://localhost:8080/createPlayer',
+axios.post('/createPlayer',
             {"playerName": player})
             .then(response => {console.log(response) })
             
@@ -19,7 +19,7 @@ axios.post('http://localhost:8080/createPlayer',
 
 
 function readAll(){
-  axios.get('http://localhost:8080/findPlayer')
+  axios.get('/findPlayer')
        .then(response => {console.log(response.data); makeTable(response.data);});
 }
 
@@ -199,7 +199,7 @@ function makeTable(data) {
         thirteenInput.value = "13";
         thirteenInput.innerHTML="13";
         finishingDoubleInput.appendChild(thirteenInput);
-
+        addplayerpopup
         const fourteenInput = document.createElement("option");
         fourteenInput.value = "14";
         fourteenInput.innerHTML="14";
