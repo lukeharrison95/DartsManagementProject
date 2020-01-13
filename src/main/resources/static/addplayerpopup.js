@@ -247,7 +247,7 @@ function makeTable(data) {
         const closeAddGameWindow = document.createElement("button");
         closeAddGameWindow.className="btn btn-danger";
         closeAddGameWindow.type = "button";
-        closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameForm));
+        closeAddGameWindow.addEventListener("click",() => addGameFormDiv.removeChild(addGameForm));
         closeAddGameWindow.innerHTML="Close";
         addGameForm.appendChild(closeAddGameWindow);
 
