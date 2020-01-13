@@ -132,6 +132,7 @@ function makeTable(data) {
 
         const finshingDoubleDefault = document.createElement("option");
         finshingDoubleDefault.selected="";
+        finshingDoubleDefault.innerHTML="Select Finishing double";
         finishingDoubleInput.appendChild(finshingDoubleDefault);
 
         const oneInput = document.createElement("option");
@@ -247,6 +248,8 @@ function makeTable(data) {
         closeAddGameWindow.className="btn btn-danger";
         closeAddGameWindow.type = "button";
         closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameFormdiv));
+        closeAddGameWindow.innerHTML="Close";
+        addGameForm.appendChild(closeAddGameWindow);
 
         addGameFormDiv.appendChild(addGameForm);
 
