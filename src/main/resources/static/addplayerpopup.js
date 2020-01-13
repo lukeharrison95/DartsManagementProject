@@ -104,7 +104,8 @@ function makeTable(data) {
         
         const resultInput = document.createElement("select");
         resultInput.className = "custom-select";
-        
+        resultInput.id="resultId"
+
         const optionResultDefault = document.createElement("option");
         optionResultDefault.selected = "";
         optionResultDefault.innerHTML ="Select Result";
@@ -129,6 +130,7 @@ function makeTable(data) {
         
         const finishingDoubleInput = document.createElement("select");
         finishingDoubleInput.className="custom-select";
+        finishingDoubleInput.id="finishingDoubleId"
 
         const finshingDoubleDefault = document.createElement("option");
         finshingDoubleDefault.selected="";
@@ -253,6 +255,15 @@ function makeTable(data) {
 
         addGameFormDiv.appendChild(addGameForm);
 
+        let finishingDoubleValue = document.getElementById("finishingDoubleId").value;
+        let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
+        let resultValue = document.getElementById("resultId").value;
+
+        axios.patch("/DartsProject/addGame/" + playerId,
+              {"finishingDouble": finishingDoubleValue,
+               "numberOfDartsThrown": numberOfDartsvalue,
+               "result": resultValue}
+              ).then(response => {console.log(response)});
 
       }
       
