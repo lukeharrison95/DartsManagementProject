@@ -87,7 +87,7 @@ function makeTable(data) {
         
         const addGameForm = document.createElement("form");
         addGameForm.className = "form-container";
-        addGameForm.addEventListener= "submit",() => addGameDate(playerId);
+        addGameForm.addEventListener("submit",() => addGameDate(playerId));
         
         
         const addTitle = document.createElement("h1");
