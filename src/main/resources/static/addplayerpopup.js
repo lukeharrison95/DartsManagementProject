@@ -82,8 +82,8 @@ function makeTable(data) {
 
       function addGame(data){
         let playerid = data;
-        const addGameFormDiv = document.createElement("div");
-        addGameFormDiv.id ="myAddGameForm";
+        let addGameFormDiv = document.getElementById("myAddGameForm");
+        
         
         const addGameForm = document.createElement("form");
         addGameForm.className = "form-containter";
