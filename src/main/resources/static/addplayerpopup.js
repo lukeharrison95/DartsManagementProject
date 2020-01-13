@@ -226,7 +226,7 @@ function makeTable(data) {
 
         const eighteenInput = document.createElement("option");
         eighteenInput.value = "18";
-        eighteenInput.innerHTML="18";()
+        eighteenInput.innerHTML="18";
         finishingDoubleInput.appendChild(eighteenInput);
 
         const nineteenInput = document.createElement("option");
@@ -260,6 +260,7 @@ function makeTable(data) {
 
 
 
+
       }
       
 
@@ -274,7 +275,7 @@ function makeTable(data) {
         let finishingDoubleValue = document.getElementById("finishingDoubleId").value;
         let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
         let resultValue = document.getElementById("resultId").value;
-        
+
         axios.patch("/DartsProject/addGame/" + playerId,
         {"finishingDouble": finishingDoubleValue,
          "numberOfDartsThrown": numberOfDartsvalue,
