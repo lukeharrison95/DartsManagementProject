@@ -256,9 +256,7 @@ function makeTable(data) {
 
         addGameFormDiv.appendChild(addGameForm);
 
-        let finishingDoubleValue = document.getElementById("finishingDoubleId").value;
-        let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
-        let resultValue = document.getElementById("resultId").value;
+
 
 
 
@@ -272,6 +270,11 @@ function makeTable(data) {
 
       function addGameDate(data){
         const playerId = data;
+
+        let finishingDoubleValue = document.getElementById("finishingDoubleId").value;
+        let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
+        let resultValue = document.getElementById("resultId").value;
+        
         axios.patch("/DartsProject/addGame/" + playerId,
         {"finishingDouble": finishingDoubleValue,
          "numberOfDartsThrown": numberOfDartsvalue,
