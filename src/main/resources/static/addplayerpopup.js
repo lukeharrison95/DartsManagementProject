@@ -282,7 +282,7 @@ function makeTable(data) {
         deletePlayerForm.className="form-container"
         deletePlayerForm.addEventListener("submit",() => deletePlayerValue(playerid));
 
-        const youSureCheck = document.createElement(h2)
+        const youSureCheck = document.createElement("h2")
         youSureCheck.innerHTML="Are you sure you want to delete this Player?"
         deletePlayerForm.appendChild(youSureCheck);
 
