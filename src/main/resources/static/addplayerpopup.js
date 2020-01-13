@@ -87,7 +87,7 @@ function makeTable(data) {
         
         const addGameForm = document.createElement("form");
         addGameForm.className = "form-containter";
-        addGameFormDiv.appendChild(addGameForm);
+        
         
         const addTitle = document.createElement("h1");
         addTitle.innerHTML = "Add Game";
@@ -241,6 +241,7 @@ function makeTable(data) {
         addGameSubmitButton.innerHTML = "Submit";
         addGameForm.appendChild(addGameSubmitButton);
 
+        addGameFormDiv.appendChild(addGameForm);
       /*   const closeAddGameWindow = document.createElement("button");
         closeAddGameWindow.className="btn btn-danger";
         closeAddGameWindow.type = "button";
