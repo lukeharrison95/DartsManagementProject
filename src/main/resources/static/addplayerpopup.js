@@ -256,19 +256,8 @@ function makeTable(data) {
 
         addGameFormDiv.appendChild(addGameForm);
 
-
-
-
-
-
       }
       
-
-      /* function closeeditForm() {
-        document.getElementById("myAddGameForm").style.display = "none";
-      }
-       */
-
       function addGameDate(data){
         const playerId = data;
 
@@ -285,9 +274,39 @@ function makeTable(data) {
       }
 
 
-      function deleteplayer(){
+      function deleteplayer(data){
+        let playerid = data;
+        let deletePlayerFormDiv = document.getElementById("myDeletePlayerForm");
+
+        const deletePlayerForm = document.createElement("form")
+        deletePlayerForm.className="form-container"
+        deletePlayerForm.addEventListener("submit",() => deletePlayerValue(playerid));
+
+        const youSureCheck = document.createElement(h2)
+        youSureCheck.innerHTML="Are you sure you want to delete this Player?"
+        deletePlayerForm.appendChild(youSureCheck);
+
+        const deletePlayerNow = document.createElement("button");
+        deletePlayerNow.className="btn btn-danger";
+        deletePlayerNow.type="submit";
+        deletePlayerNow.innerHTML="DELETE";
+        deletePlayerForm.appendChild(deletePlayerNow);
+
+        const closeDeletePlayerWindow = document.createElement("button");
+        closeDeletePlayerWindow.className="btn btn-danger";
+        closeDeletePlayerWindow.type="button";
+        closeDeletePlayerWindow.addEventListener("click",() => myDeletePlayerForm.removeChild(deletePlayerForm));
+        deletePlayerForm.appendChild(closeDeletePlayerWindow);
+        deletePlayerFormDiv.appendChild(deletePlayerForm);
        
       }
+
+      function deletePlayerValue(data){
+        let playerid = data;
+        axios.delete("/DartsProject/deletePlayer/" + playerid)
+        .then(response => {console.log(response);})
+      }
+
 
 
 
