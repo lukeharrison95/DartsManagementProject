@@ -87,6 +87,7 @@ function makeTable(data) {
         
         const addGameForm = document.createElement("form");
         addGameForm.className = "form-container";
+        addGameForm.onsubmit = "addGameData(playerid)";
         
         
         const addTitle = document.createElement("h1");
@@ -225,7 +226,7 @@ function makeTable(data) {
 
         const eighteenInput = document.createElement("option");
         eighteenInput.value = "18";
-        eighteenInput.innerHTML="18";
+        eighteenInput.innerHTML="18";()
         finishingDoubleInput.appendChild(eighteenInput);
 
         const nineteenInput = document.createElement("option");
@@ -259,11 +260,7 @@ function makeTable(data) {
         let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
         let resultValue = document.getElementById("resultId").value;
 
-        axios.patch("/DartsProject/addGame/" + playerId,
-              {"finishingDouble": finishingDoubleValue,
-               "numberOfDartsThrown": numberOfDartsvalue,
-               "result": resultValue}
-              ).then(response => {console.log(response)});
+
 
       }
       
@@ -273,16 +270,14 @@ function makeTable(data) {
       }
        */
 
-    /*   function addGame(data) {
-        let playerId = data;
-        let patchurl = "http://localhost8080:addGame/" + playerId;
-        let game 
-        
-        
-        
-        
-        axios.patch(patchurl)
-      } */
+      function addGameDate(data){
+        const playerId = data;
+        axios.patch("/DartsProject/addGame/" + playerId,
+        {"finishingDouble": finishingDoubleValue,
+         "numberOfDartsThrown": numberOfDartsvalue,
+         "result": resultValue}
+        ).then(response => {console.log(response)});
+      }
 
 
       function deleteplayer(){
