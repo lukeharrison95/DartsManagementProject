@@ -86,7 +86,7 @@ function makeTable(data) {
         
         
         const addGameForm = document.createElement("form");
-        addGameForm.className = "form-containter";
+        addGameForm.className = "form-container";
         
         
         const addTitle = document.createElement("h1");
@@ -234,6 +234,7 @@ function makeTable(data) {
         twentyInput.value = "20";
         twentyInput.innerHTML="20";
         finishingDoubleInput.appendChild(twentyInput);
+        addGameForm.appendChild(finishingDoubleInput);
 
         const addGameSubmitButton = document.createElement("button");
         addGameSubmitButton.type ="submit";
@@ -241,12 +242,13 @@ function makeTable(data) {
         addGameSubmitButton.innerHTML = "Submit";
         addGameForm.appendChild(addGameSubmitButton);
 
-        addGameFormDiv.appendChild(addGameForm);
-      /*   const closeAddGameWindow = document.createElement("button");
+        
+        const closeAddGameWindow = document.createElement("button");
         closeAddGameWindow.className="btn btn-danger";
         closeAddGameWindow.type = "button";
-        closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameFormdiv)); */
+        closeAddGameWindow.addEventListener("click",() => addGameFormdiv.body.removeChild(addGameFormdiv));
 
+        addGameFormDiv.appendChild(addGameForm);
 
 
       }
