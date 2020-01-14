@@ -21,7 +21,7 @@ function createLeagueTable(data){
         
         const cell1 = document.createElement("th");
 
-        const playername = document.document.createTextNode(players[x].playerName);
+        const playername = document.createTextNode(players[x].playerName);
               cell1.appendChild(playername);
               row.appendChild(cell1);
 
