@@ -4,7 +4,7 @@ function getAllPlayers(){
   }
 
 
-debugger
+
 
 function createLeagueTable(data){
     let players = data;
@@ -59,26 +59,26 @@ function getPoints(data){
     let playerId = data;
 
     let playerPoints = axios.get("/DartsProject/getPoints/" + playerId)
-                            .then(response => {return response.data});
+                            .then(response => {console.log(response.data);});
 }
 
 function getWins(data){
     let playerId = data;
 
     let playerWins = axios.get("/DartsProject/getWins/" + playerId)
-                    .then(response => {return response.data});
+                    .then(response => {console.log(response.data);});
 }
 
 function getDraws(data){
     let playerId = data;
 
     let playerDraws = axios.get("DartsProject/getDraws/" + playerId)
-                        .then(response => {return response.data});
+                        .then(response => {console.log(response.data);});
 }
 
 function getLosses(data){
     let playerId = data;
 
     let playerLosses = axios.get("DartsProject/getLoss/" + playerId)
-    .then(response => {return response.data});
+    .then(response => {console.log(response.data);});
 }
