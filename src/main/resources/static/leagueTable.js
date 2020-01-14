@@ -4,6 +4,7 @@ function getAllPlayers(){
   }
 
 
+debugger
 
 function createLeagueTable(data){
     let players = data;
@@ -78,6 +79,6 @@ function getDraws(data){
 function getLosses(data){
     let playerId = data;
 
-    let playerLosses = axios.get("DartsProject/getLoss" + playerId)
+    let playerLosses = axios.get("DartsProject/getLoss/" + playerId)
     .then(response => {return response.data});
 }
