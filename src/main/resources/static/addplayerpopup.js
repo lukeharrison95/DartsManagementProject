@@ -10,7 +10,7 @@ function closeForm() {
 
 function addPlayer() {
   let player = document.getElementById("player").value;
-  axios.post('/DartsProject/createPlayer',
+  axios.post(PATH + "DartsProject/createPlayer',
     { "playerName": player })
     .then(response => { console.log(response) })
 
@@ -19,7 +19,7 @@ function addPlayer() {
 
 
 function readAll() {
-  axios.get('/DartsProject/findPlayer')
+  axios.get(PATH + "DartsProject/findPlayer')
     .then(response => { console.log(response.data); makeTable(response.data); });
 }
 

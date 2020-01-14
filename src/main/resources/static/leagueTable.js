@@ -1,5 +1,5 @@
 function getAllPlayers() {
-    axios.get('/DartsProject/findPlayer')
+    axios.get('DartsProject/findPlayer')
         .then(response => { console.log(response.data); createLeagueTable(response.data); });
 }
 
@@ -51,16 +51,16 @@ function createLeagueTable(players) {
 }
 function getPlayer(playerId) {
     let data = {};
-    axios.get("/DartsProject/getPoints/" + playerId)
+    axios.get(PATH + "DartsProject/getPoints/" + playerId)
         .then(response => {
             data.points = response.data;
-            axios.get("/DartsProject/getWins/" + playerId)
+            axios.get(PATH + "DartsProject/getWins/" + playerId)
                 .then(response => {
                     data.wins = response.data;
-                    axios.get("/DartsProject/getDraws/" + playerId)
+                    axios.get(PATH + "DartsProject/getDraws/" + playerId)
                         .then(response => {
                             data.draws = response.data;
-                            axios.get("/DartsProject/getLoss/" + playerId)
+                            axios.get(PATH + "DartsProject/getLoss/" + playerId)
                                 .then(response => {
                                     data.losses = response.data;
                                 });
@@ -68,24 +68,4 @@ function getPlayer(playerId) {
                 });
         }).catch(error => console.error(error));
     return data;
-}
-
-function getPoints(playerId) {
-    return
-}
-
-function getWins(playerId) {
-    return
-}
-
-function getDraws(playerId) {
-    return axios.get("/DartsProject/getDraws/" + playerId)
-        .then(response => {
-            console.log(response.data);
-            return response.data;
-        });
-}
-
-function getLosses(playerId) {
-    return
 }
