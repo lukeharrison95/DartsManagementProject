@@ -21,32 +21,32 @@ function createLeagueTable(data){
         
         const cell1 = document.createElement("th");
 
-        const playername = document.createTextNode(players[x].playerName);
+        const playername = document.document.createTextNode(players[x].playerName);
               cell1.appendChild(playername);
               row.appendChild(cell1);
 
 /*         const cell2 = document.createElement("td");
-        let played = createTextNode(getPlayed(players[x].playerId).value);
+        let played = document.createTextNode(getPlayed(players[x].playerId).value);
             cell2.appendChild(played);
             row.appendChild(cell2); */
 
         const cell3 = document.createElement("td");
-        let wins = createTextNode(playerWins);
+        let wins = document.createTextNode(playerWins);
             cell3.appendChild(wins);
             row.appendChild(cell3);
 
         const cell4 = document.createElement("td");
-        let draws = createTextNode(getDraws(playerDraws));
+        let draws = document.createTextNode(getDraws(playerDraws));
             cell4.appendChild(draws);
             row.appendChild(cell4);
 
         const cell5 = document.createElement("td");
-        let losses = createTextNode(getLosses(playerLosses));
+        let losses = document.createTextNode(getLosses(playerLosses));
             cell5.appendChild(losses);
             row.appendChild(cell5);
 
             const cell6 = document.createElement("td");
-            let points = createTextNode(getpoints(playerPoints));
+            let points = document.createTextNode(getpoints(playerPoints));
                 cell6.appendChild(points);
                 row.appendChild(cell6);
     }
