@@ -71,7 +71,7 @@ function getWins(playerId) {
 }
 
 function getDraws(playerId) {
-    return axios.get("DartsProject/getDraws/" + playerId)
+    return axios.get("/DartsProject/getDraws/" + playerId)
         .then(response => {
             console.log(response.data);
             return response.data;
@@ -79,7 +79,7 @@ function getDraws(playerId) {
 }
 
 function getLosses(playerId) {
-    return axios.get("DartsProject/getLoss/" + playerId)
+    return axios.get("/DartsProject/getLoss/" + playerId)
         .then(response => {
             console.log(response.data);
             return response.data;
