@@ -27,22 +27,22 @@ function createLeagueTable(data){
             row.appendChild(cell2); */
 
         const cell3 = document.createElement("td");
-        let wins = createTextNode(getWins(players[x].playerId).value);
+        let wins = createTextNode(getWins(players[x].playerId));
             cell3.appendChild(wins);
             row.appendChild(cell3);
 
         const cell4 = document.createElement("td");
-        let draws = createTextNode(getDraws(players[x].playerId).value);
+        let draws = createTextNode(getDraws(players[x].playerId));
             cell4.appendChild(draws);
             row.appendChild(cell4);
 
         const cell5 = document.createElement("td");
-        let losses = createTextNode(getLosses(players[x].playerId).value);
+        let losses = createTextNode(getLosses(players[x].playerId));
             cell5.appendChild(losses);
             row.appendChild(cell5);
 
             const cell6 = document.createElement("td");
-            let points = createTextNode(getpoints(players[x].playerId).value);
+            let points = createTextNode(getpoints(players[x].playerId));
                 cell6.appendChild(points);
                 row.appendChild(cell6);
     }
