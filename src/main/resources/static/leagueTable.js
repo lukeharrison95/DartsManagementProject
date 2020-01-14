@@ -1,6 +1,6 @@
 function getAllPlayers(){
     axios.get('/DartsProject/findPlayer')
-         .then(response => {console.log(response.data); makeTable(response.data);});
+         .then(response => {console.log(response.data); createLeagueTable(response.data);});
   }
 
 
