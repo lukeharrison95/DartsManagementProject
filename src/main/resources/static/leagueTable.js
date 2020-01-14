@@ -6,15 +6,14 @@ function getAllPlayers(){
 
 
 
-function createLeagueTable(data){
-    let players = data;
+function createLeagueTable(players){
     let leagueBody = document.getElementById("leagueBody");
 
     for (let x= 0; x < players.length; x++){
-        getWins(players[x].playerId);
-        getDraws(players[x].playerId);
-        getLosses(players[x].playerId);
-        getPoints(players[x].playerId);
+        let playerWins = getWins(players[x].playerId);
+        let playerDraws = getDraws(players[x].playerId);
+        let playerLosses = getLosses(players[x].playerId);
+        let playerPoints = getPoints(players[x].playerId);
         const row = document.createElement("tr");
               row.className = "table-dark";
               leagueBody.appendChild(row);
@@ -36,17 +35,17 @@ function createLeagueTable(data){
             row.appendChild(cell3);
 
         const cell4 = document.createElement("td");
-        let draws = document.createTextNode(getDraws(playerDraws));
+        let draws = document.createTextNode(playerDraws);
             cell4.appendChild(draws);
             row.appendChild(cell4);
 
         const cell5 = document.createElement("td");
-        let losses = document.createTextNode(getLosses(playerLosses));
+        let losses = document.createTextNode(playerLosses);
             cell5.appendChild(losses);
             row.appendChild(cell5);
 
             const cell6 = document.createElement("td");
-            let points = document.createTextNode(getpoints(playerPoints));
+            let points = document.createTextNode(playerPoints);
                 cell6.appendChild(points);
                 row.appendChild(cell6);
     }
@@ -55,30 +54,22 @@ function createLeagueTable(data){
 }
 
 
-function getPoints(data){
-    let playerId = data;
-
-    let playerPoints = axios.get("/DartsProject/getPoints/" + playerId)
+function getPoints(playerId){
+    return axios.get("/DartsProject/getPoints/" + playerId)
                             .then(response => {console.log(response.data);});
 }
 
-function getWins(data){
-    let playerId = data;
-
-    let playerWins = axios.get("/DartsProject/getWins/" + playerId)
+function getWins(playerId){
+  return axios.get("/DartsProject/getWins/" + playerId)
                     .then(response => {console.log(response.data);});
 }
 
-function getDraws(data){
-    let playerId = data;
-
-    let playerDraws = axios.get("DartsProject/getDraws/" + playerId)
+function getDraws(playerId){
+    return axios.get("DartsProject/getDraws/" + playerId)
                         .then(response => {console.log(response.data);});
 }
 
-function getLosses(data){
-    let playerId = data;
-
-    let playerLosses = axios.get("DartsProject/getLoss/" + playerId)
+function getLosses(playerId){
+   return axios.get("DartsProject/getLoss/" + playerId)
     .then(response => {console.log(response.data);});
 }
