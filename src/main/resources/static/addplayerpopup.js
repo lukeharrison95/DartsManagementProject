@@ -295,6 +295,7 @@ function makeTable(data) {
         const closeDeletePlayerWindow = document.createElement("button");
         closeDeletePlayerWindow.className="btn btn-danger";
         closeDeletePlayerWindow.type="button";
+        closeDeletePlayerWindow.innerHTML="Close"
         closeDeletePlayerWindow.addEventListener("click",() => myDeletePlayerForm.removeChild(deletePlayerForm));
         deletePlayerForm.appendChild(closeDeletePlayerWindow);
         deletePlayerFormDiv.appendChild(deletePlayerForm);
