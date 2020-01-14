@@ -1,7 +1,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="bootstrap.min.css">
-
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="mycss.css">
 </head>
 
 <body>
@@ -34,10 +35,30 @@
         </h2>
       </div>
 
-      
-
-
-
-
+      <div id ="myLeagueDiv">
+        <table id ="leagueTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Player Name</th>
+              <th scope="col">Played</th>
+              <th scope="col">Won</th>
+              <th scope="col">Drawn</th>
+              <th scope="col">Lost</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody id="leagueBody">
+            
+            
+          </tbody>
+        </table> 
+       
+        
+  
+        
+      </div>
 
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./leagueTable.js"> </script>
+</html>
