@@ -17,12 +17,12 @@ function createLeagueTable(players) {
 
         const cell1 = document.createElement("th");
 
-        const playername = document.createTextNode(players[x].playerName);
+        const playername = document.createTextNode(player.playerName);
         cell1.appendChild(playername);
         row.appendChild(cell1);
 
         /*         const cell2 = document.createElement("td");
-                let played = document.createTextNode(getPlayed(players[x].playerId).value);
+                let played = document.createTextNode(getPlayed(player.playerId).value);
                     cell2.appendChild(played);
                     row.appendChild(cell2); */
 
