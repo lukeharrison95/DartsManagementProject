@@ -60,17 +60,20 @@ function getPoints(data){
 function getWins(data){
     let playerId = data;
 
-    axios.get("/DartsProject/getWins/" + playerId);
+    axios.get("/DartsProject/getWins/" + playerId)
+    .then(respone => {return respone.data});
 }
 
 function getDraws(data){
     let playerId = data;
 
-    axios.get("DartsProject/getDraws/" + playerId);
+    axios.get("DartsProject/getDraws/" + playerId)
+    .then(respone => {return respone.data});
 }
 
 function getLosses(data){
     let playerId = data;
 
-    axios.get("DartsProject/getLoss" + playerId);
+    axios.get("DartsProject/getLoss" + playerId)
+    .then(respone => {return respone.data});
 }
