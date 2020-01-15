@@ -1,5 +1,6 @@
 package com.DM.demo.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -79,10 +80,12 @@ public class PlayerService {
 
 	public LeagueTable getTable() {
 		LeagueTable table = new LeagueTable();
-		table.setRows(this.readPlayer().stream()
+		List<LeagueRow> rows = this.readPlayer().stream()
 				.map(player -> new LeagueRow(player.getPlayerName(), getWins(player.getPlayerId()),
 						getLost(player.getPlayerId()), getDraws(player.getPlayerId()), getPoints(player.getPlayerId())))
-				.collect(Collectors.toList()));
+				.collect(Collectors.toList());
+		Collections.sort(rows);
+		table.setRows(rows);
 		return table;
 	}
 

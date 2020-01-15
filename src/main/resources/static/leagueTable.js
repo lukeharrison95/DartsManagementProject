@@ -1,9 +1,17 @@
+
+
+
+
+
+
+
+
 function createLeagueTable() {
     axios.get(PATH + "getTable").then(res =>  {
-        res.data.rows.forEach(player => {
+        res.data.rows
+        .forEach(player => {
             showPlayer(player);
-            
-        });
+         });
     });
 }
 

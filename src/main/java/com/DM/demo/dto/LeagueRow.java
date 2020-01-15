@@ -1,6 +1,6 @@
 package com.DM.demo.dto;
 
-public class LeagueRow {
+public class LeagueRow implements Comparable<LeagueRow> {
 
 	private String name;
 
@@ -64,4 +64,9 @@ public class LeagueRow {
 		this.points = points;
 	}
 
+	@Override
+	public int compareTo(LeagueRow to) {
+		return new Integer(this.getPoints()).compareTo(to.getPoints()) * -1;
+	}
 }
+
