@@ -10,7 +10,7 @@ function closeForm() {
 
 function addPlayer() {
   let player = document.getElementById("player").value;
-  axios.post(PATH + "DartsProject/createPlayer',
+  axios.post(PATH + "createPlayer",
     { "playerName": player })
     .then(response => { console.log(response) })
 
@@ -19,7 +19,7 @@ function addPlayer() {
 
 
 function readAll() {
-  axios.get(PATH + "DartsProject/findPlayer')
+  axios.get(PATH + "findPlayer")
     .then(response => { console.log(response.data); makeTable(response.data); });
 }
 
@@ -265,7 +265,7 @@ function addGameDate(data) {
   let numberOfDartsvalue = document.getElementById("NoOfDarts").value;
   let resultValue = document.getElementById("resultId").value;
 
-  axios.patch("/DartsProject/addGame/" + playerId, {
+  axios.patch(PATH + "addGame/" + playerId, {
     "finishingDouble": finishingDoubleValue,
     "numberOfDartsThrown": numberOfDartsvalue,
     "result": resultValue
@@ -304,7 +304,7 @@ function deleteplayer(data) {
 
 function deletePlayerValue(data) {
   let playerid = data;
-  axios.delete("/DartsProject/deletePlayer/" + playerid)
+  axios.delete(PATH + "deletePlayer/" + playerid)
     .then(response => { console.log(response); })
 }
 
