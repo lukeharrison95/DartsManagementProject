@@ -1,1 +1,1 @@
-const PATH = "/DartsProject/";
+const PATH = "/DartsProjectEditPlayer/";
