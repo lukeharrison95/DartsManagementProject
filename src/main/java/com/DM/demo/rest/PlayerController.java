@@ -45,9 +45,9 @@ public class PlayerController {
 		this.service.deletePlayer(playerId);
 	}
 	
-	@PutMapping("/updatePlayer")
-	public Player updatePlayer(@RequestBody Player player) {
-		return this.service.updatePlayer(player);
+	@PatchMapping("/updatePlayer/{playerId}")
+	public Player updatePlayer(@RequestBody Player player, @PathVariable Long playerId) {
+		return this.service.updatePlayer(player, playerId);
 	}
 	
 	@GetMapping("/findPlayer/{playerId}")

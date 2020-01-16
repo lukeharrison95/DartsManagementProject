@@ -78,15 +78,15 @@ public class PlayerControllerTest {
 		verify(this.pservice, times(1)).deletePlayer(playerId);
 	}
 	
-	@Test
-	public void updatePlayer() {
-		Player newPlayerData = new Player("Tiny Tim");
-		Player updatedPlayer = new Player(newPlayerData.getPlayerName());
-		updatedPlayer.setPlayerId(playerId);
-		when(this.pservice.updatePlayer(newPlayerData)).thenReturn(updatedPlayer);
-		assertEquals(updatedPlayer,this.pservice.updatePlayer(newPlayerData));
-		verify(this.pservice, times(1)).updatePlayer(newPlayerData);
-	}
+//	@Test
+//	public void updatePlayer() {
+//		Player newPlayerData = new Player("Tiny Tim");
+//		Player updatedPlayer = new Player(newPlayerData.getPlayerName());
+//		updatedPlayer.setPlayerId(playerId);
+//		when(this.pservice.updatePlayer(newPlayerData)).thenReturn(updatedPlayer);
+//		assertEquals(updatedPlayer,this.pservice.updatePlayer(newPlayerData));
+//		verify(this.pservice, times(1)).updatePlayer(newPlayerData);
+//	}
 	
 	@Test
 	public void findAllPlayers() {
