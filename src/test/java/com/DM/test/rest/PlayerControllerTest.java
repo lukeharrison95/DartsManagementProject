@@ -35,7 +35,7 @@ public class PlayerControllerTest {
 	@Mock
 	private PlayerService pservice;
 	private List<Player> plist;
-	private Set<Game> gameSet;
+	private List<Game> gameSet;
 	private Player testPlayer;
 	private Game testGame;
 	private Player testPlayerWithId;
@@ -48,7 +48,7 @@ public class PlayerControllerTest {
 	@Before
 	public void init() {
 	this.plist = new ArrayList<>();
-	this.gameSet = new HashSet<>();
+	this.gameSet = new ArrayList<>();
 	this.testGame = new Game(2L,20L,GameEnds.WIN);
 	this.testGame.setGameId(gameId);
 	this.testPlayer = new Player("Big Phil");

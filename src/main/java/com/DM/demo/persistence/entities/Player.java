@@ -1,5 +1,7 @@
 package com.DM.demo.persistence.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -17,9 +19,9 @@ public class Player {
 	private String playerName;
 
 	@OneToMany
-	private Set<Game> games;
+	private List<Game> games = new ArrayList<>();
 
-	public Player(String playerName, Set<Game> games) {
+	public Player(String playerName, List<Game> games) {
 		super();
 		this.playerName = playerName;
 		this.games = games;
@@ -48,22 +50,12 @@ public class Player {
 		this.playerName = playerName;
 	}
 
-	public Set<Game> getGames() {
+	public List<Game> getGames() {
 		return games;
 	}
 
-	public void setGames(Set<Game> games) {
-		this.games = games;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((games == null) ? 0 : games.hashCode());
-		result = prime * result + (int) (playerId ^ (playerId >>> 32));
-		result = prime * result + ((playerName == null) ? 0 : playerName.hashCode());
-		return result;
+	public void setGames(List<Game> gameSet) {
+		this.games = gameSet;
 	}
 
 	@Override
@@ -88,6 +80,11 @@ public class Player {
 		} else if (!playerName.equals(other.playerName))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Player [playerId=" + playerId + ", playerName=" + playerName + ", games=" + games + "]";
 	}
 
 }

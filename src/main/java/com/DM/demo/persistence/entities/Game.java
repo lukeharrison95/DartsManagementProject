@@ -32,6 +32,7 @@ public class Game {
 		return gameId;
 	}
 
+	
 	public void setGameId(Long gameId) {
 		this.gameId = gameId;
 	}
@@ -59,5 +60,36 @@ public class Game {
 	public void setResult(GameEnds result) {
 		this.result = result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Game other = (Game) obj;
+		if (finishingDouble == null) {
+			if (other.finishingDouble != null)
+				return false;
+		} else if (!finishingDouble.equals(other.finishingDouble))
+			return false;
+		if (gameId == null) {
+			if (other.gameId != null)
+				return false;
+		} else if (!gameId.equals(other.gameId))
+			return false;
+		if (numberOfDartsThrown == null) {
+			if (other.numberOfDartsThrown != null)
+				return false;
+		} else if (!numberOfDartsThrown.equals(other.numberOfDartsThrown))
+			return false;
+		if (result != other.result)
+			return false;
+		return true;
+	}
+	
+	
 
 }

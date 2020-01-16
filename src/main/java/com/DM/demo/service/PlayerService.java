@@ -53,6 +53,7 @@ public class PlayerService {
 		return this.repo.save(updatedPlayer);
 	}
 
+	
 	public int getPoints(Long id) {
 		return this.repo.findById(id).orElseThrow(PlayerNotFoundException::new).getGames().stream()
 				.map(game -> game.getResult()).map(result -> result.getPoints()).reduce((acc, next) -> acc + next)
@@ -92,3 +93,4 @@ public class PlayerService {
 	}
 
 }
+
