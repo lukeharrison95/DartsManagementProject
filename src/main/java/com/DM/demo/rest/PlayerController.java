@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DM.demo.dto.LeagueTable;
 import com.DM.demo.persistence.entities.Game;
 import com.DM.demo.persistence.entities.Player;
 import com.DM.demo.service.PlayerService;
@@ -77,6 +78,11 @@ public class PlayerController {
 	@GetMapping("/getLoss/{playerId}")
 	public long getLoss(@PathVariable long playerId) {
 		return this.service.getLost(playerId);
+	}
+	
+	@GetMapping("/getTable")
+	public LeagueTable getTable() {
+		return this.service.getTable();
 	}
 	
 	
