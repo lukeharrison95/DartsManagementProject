@@ -1,1 +1,1 @@
-const PATH = "/DartsProjectLeagueTable/";
+const PATH = "/DartsProject/";
