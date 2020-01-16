@@ -47,8 +47,10 @@ public class PlayerService {
 		return this.repo.findAll();
 	}
 
-	public Player updatePlayer(Player player) {
-		return this.repo.save(player);
+	public Player updatePlayer(Player player, Long id) {
+		Player updatedPlayer = this.repo.findById(id).orElseThrow(PlayerNotFoundException:: new);
+		updatedPlayer.setPlayerName(player.getPlayerName());
+		return this.repo.save(updatedPlayer);
 	}
 
 	public int getPoints(Long id) {

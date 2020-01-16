@@ -71,14 +71,47 @@ function makeTable(data) {
 
 
 
-function updateplayer() {
-  document.getElementById("myEditForm").style.display = "block";
+function updateplayer(playerid) {
+  let editPlayerFormDiv = document.getElementById("myEditPlayerForm");
+
+  const editPlayerForm = document.createElement("form");
+  editPlayerForm.className = "form-container";
+  editPlayerForm.addEventListener("submit", () => editPlayerData(playerid));
+
+  const editTitle = document.createElement("h1");
+  editTitle.innerHTML = "Edit Player";
+  editPlayerForm.appendChild(editTitle);
+
+  const newPlayerNameInput = document.createElement("input");
+  newPlayerNameInput.type = "text";
+  newPlayerNameInput.placeholder = "New Playername";
+  newPlayerNameInput.id = "newPlayerName";
+  newPlayerNameInput.required = true;
+  editPlayerForm.appendChild(newPlayerNameInput);
+
+  const editPlayerSubmit = document.createElement("button");
+  editPlayerSubmit.type = "submit";
+  editPlayerSubmit.className = "btn btn-success";
+  editPlayerSubmit.innerHTML = "Submit";
+  editPlayerForm.appendChild(editPlayerSubmit);
+
+  const editClose = document.createElement("button");
+  editClose.type="button";
+  editClose.className = "btn btn-danger";
+  editClose.innerHTML = "Close"
+  editClose.addEventListener("click",() => editPlayerFormDiv.removeChild(editPlayerForm));
+  editPlayerForm.appendChild(editClose);
+  editPlayerFormDiv.appendChild(editPlayerForm);
+
 }
 
-
-function closeEditForm() {
-  document.getElementById("myEditForm").style.display = "none";
+function editPlayerData(playerid){
+let playerNewName = document.getElementById("newPlayerName").value;
+axios.patch(PATH + "updatePlayer/" + playerid,
+{
+  "playerName": playerNewName })
 }
+
 
 function addGame(data) {
   let playerid = data;
