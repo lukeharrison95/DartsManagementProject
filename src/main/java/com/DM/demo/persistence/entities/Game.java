@@ -32,6 +32,7 @@ public class Game {
 		return gameId;
 	}
 
+	
 	public void setGameId(Long gameId) {
 		this.gameId = gameId;
 	}
@@ -59,5 +60,7 @@ public class Game {
 	public void setResult(GameEnds result) {
 		this.result = result;
 	}
+
+
 
 }

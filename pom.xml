@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bae</groupId>
-	<artifactId>AccountApp</artifactId>
+	<artifactId>DartsBuddy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AccountApp</name>
+	<name>DartsBuddy</name>
 	
 	<description>Demo project for Spring Boot</description>
 	<packaging>war</packaging>
@@ -55,7 +55,7 @@
 
 	<build>
 	    <finalName>${project.artifactId}</finalName>
-	    <pluginManagement>
+	 
 	        <plugins>
 	            <plugin>
 	                <groupId>org.springframework.boot</groupId>
@@ -64,8 +64,29 @@
 	                    <executable>true</executable>
 	                </configuration>
 	            </plugin>
+	            <plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+	            
 	        </plugins>
-	    </pluginManagement>
+	    
 	</build>
 
 </project>
