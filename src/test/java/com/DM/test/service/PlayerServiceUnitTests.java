@@ -17,6 +17,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.DM.demo.Util.GameEnds;
+import com.DM.demo.dto.LeagueRow;
+import com.DM.demo.dto.LeagueTable;
 import com.DM.demo.persistence.entities.Game;
 import com.DM.demo.persistence.entities.Player;
 import com.DM.demo.persistence.repo.GameRepo;
@@ -27,30 +29,27 @@ import com.DM.demo.service.PlayerService;
 @RunWith(MockitoJUnitRunner.class)
 public class PlayerServiceUnitTests {
 
-	final Long gameId = 1L;
-
-	private List<Game> gameList;
-
-	@Mock
-	private GameRepo gameRepo;
-
-	@Mock
-	private GameService gameService;
-
-	@Mock
-	private PlayerRepo playerRepo;
-
 	@InjectMocks
 	private PlayerService playerService;
-
+	
+	@Mock
+	private GameRepo gameRepo;
+	@Mock
+	private GameService gameService;
+	@Mock
+	private PlayerRepo playerRepo;
 	final Long playerId = 1L;
 	private List<Player> playerList;
-
+	private List<Game> gameList;
 	private Game testGame;
 	private Game testGameWithId;
 	private Player testPlayer;
 	private Player testPlayerWithGame;
 	private Player testPlayerWithId;
+
+
+	final Long gameId = 1L;
+	final int points = 1;
 
 	@Before
 	public void init() {
@@ -68,6 +67,7 @@ public class PlayerServiceUnitTests {
 		this.testPlayerWithGame = new Player(testPlayer.getPlayerName());
 		testPlayerWithGame.setPlayerId(playerId);
 		testPlayerWithGame.setGames(gameList);
+
 	}
 
 	@Test
@@ -123,5 +123,78 @@ public class PlayerServiceUnitTests {
 		verify(this.playerRepo, times(1)).findById(1L);
 		verify(this.playerRepo, times(1)).save(updatedPlayer);
 	}
+	
+	
+	@Test
+	public void getPointsTest() {
+		when(this.playerRepo.findById(playerId)).thenReturn(Optional.of(testPlayerWithGame));
+		assertEquals(points,this.playerService.getPoints(playerId));
+	}
+	
+	@Test
+	public void getWins() {
+		when(this.playerRepo.findById(playerId)).thenReturn(Optional.of(testPlayerWithGame));
+		assertEquals(0,this.playerService.getWins(playerId));
+	}
+	
+	@Test 
+	public void getDrawsTest() {
+		when(this.playerRepo.findById(playerId)).thenReturn(Optional.of(testPlayerWithGame));
+		assertEquals(1,this.playerService.getDraws(playerId));
+	}
+	
+	@Test
+	public void getlostTest() {
+		when(this.playerRepo.findById(playerId)).thenReturn(Optional.of(testPlayerWithGame));
+		assertEquals(0, this.playerService.getLost(playerId));
+	}
+	
+	@Test
+	public void getTableTest() {
+		LeagueTable leagueTable = new LeagueTable();
 
-}
+		assertEquals(leagueTable.toString(), this.playerService.getTable().toString());
+	}
+
+
+//	@Test
+//	public void fullTableTest() {
+//		LeagueTable leagueTable = new LeagueTable();
+//		LeagueRow leagueRow1 = new LeagueRow("Big Phil", 1,0,0,3);
+//		LeagueRow leagueRow2 = new LeagueRow("Tiny Tim", 0,1,0,1);
+//		LeagueRow leagueRow3 = new LeagueRow("Average Larry", 0,0,1,0);
+//		List<LeagueRow> rows = new ArrayList<>();
+//		rows.add(leagueRow1);
+//		rows.add(leagueRow2);
+//		rows.add(leagueRow3);
+//		leagueTable.setRows(rows);
+//		
+//		Player bigPhil = new Player("Big Phil");
+//		bigPhil.setPlayerId(1L);
+//		Player tinyTim = new Player("Tiny Tim");
+//		tinyTim.setPlayerId(2L);
+//		Player averageLarry = new Player("AverageLarry");
+//		averageLarry.setPlayerId(3L);
+//		
+//		Game philsGame = new Game(2L,20L,GameEnds.WIN);
+//		when(this.playerRepo.findById(bigPhil.getPlayerId())).thenReturn(Optional.of(bigPhil));
+//		playerService.addGame(philsGame, bigPhil.getPlayerId());
+//		
+//		Game timsGame = new Game(4L,35L,GameEnds.DRAW);
+//		when(this.playerRepo.findById(tinyTim.getPlayerId())).thenReturn(Optional.of(tinyTim));
+//		playerService.addGame(timsGame, tinyTim.getPlayerId());
+//		
+//		Game larrysGame = new Game(3L,40L,GameEnds.LOSS);
+//		when(this.playerRepo.findById(averageLarry.getPlayerId())).thenReturn(Optional.of(averageLarry));
+//		playerService.addGame(larrysGame, averageLarry.getPlayerId());
+//		List<Player> playerListTest = new ArrayList<>();
+//		playerListTest.add(bigPhil);
+//		playerListTest.add(tinyTim);
+//		playerListTest.add(averageLarry);
+//		
+//		when(this.playerRepo.findAll()).thenReturn(playerListTest);
+//		System.out.println(playerListTest);
+//		assertEquals(leagueTable.toString(), this.playerService.getTable().toString());
+//	}
+		
+	}

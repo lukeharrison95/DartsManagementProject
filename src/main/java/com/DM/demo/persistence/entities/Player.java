@@ -82,9 +82,5 @@ public class Player {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Player [playerId=" + playerId + ", playerName=" + playerName + ", games=" + games + "]";
-	}
 
 }

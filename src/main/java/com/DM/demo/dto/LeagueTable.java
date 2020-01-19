@@ -15,4 +15,11 @@ public class LeagueTable {
 		this.rows = rows;
 	}
 
+	@Override
+	public String toString() {
+		return "LeagueTable [rows=" + rows + "]";
+	}
+
+	
+	
 }
