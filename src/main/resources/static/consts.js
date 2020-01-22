@@ -1,1 +1,1 @@
-const PATH = "/DartsProject/";
+const PATH = "http://localhost:8080/";
