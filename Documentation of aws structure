@@ -1,0 +1,11 @@
+1.) Make an RDS database
+	-mysql
+	-set admin passwords
+2.) Make a backend image with the script file 
+3.) Make a launch config using the background image and set up an auto scaling group
+4.)set up a launch balancer and then connect it to your back end scaling group,
+5.)make a front end image also using the script file
+6.)Set up a front end launch config using the front end image and set up an auto scaling group
+7.)set up a load balancer for my front end and connect it to the front end scaling groups.
+
+This should now keep 1 instance up and if the cpu usage exceeds 30% then one more vm will be produced
